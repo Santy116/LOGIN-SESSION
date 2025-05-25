@@ -1,4 +1,19 @@
 <?php
+session_start();
+
+// Jika user belum login, redirect ke login
+if (!isset($_SESSION['user'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
+// Jika user bukan admin (level != 0), redirect ke index.php
+if ($_SESSION['user']['level'] != 0) {
+    header("Location: ../index.php");
+    exit();
+}
+?>
+<?php
 require_once '../models/HewanLaut.php';
 $hewan = new HewanLaut();
 
@@ -132,7 +147,6 @@ require __DIR__ . '/../includes/navigation.php';
 </div>
 
 <script>
-// Update file input label
 document.getElementById('gambar').addEventListener('change', function(e) {
     const fileName = e.target.files[0] ? e.target.files[0].name : "Pilih gambar...";
     const label = e.target.nextElementSibling;
@@ -141,7 +155,6 @@ document.getElementById('gambar').addEventListener('change', function(e) {
     }
 });
 </script>
-
 <?php
 require __DIR__ . '/../includes/footer.php';
 ?>

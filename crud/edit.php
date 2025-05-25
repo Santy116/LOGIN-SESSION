@@ -156,11 +156,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
-// Update file input label
-document.querySelector('.custom-file-input').addEventListener('change', function(e) {
-    var fileName = document.getElementById("gambar").files[0]?.name || "Pilih gambar baru...";
-    var nextSibling = e.target.nextElementSibling;
-    nextSibling.innerText = fileName;
+document.getElementById('gambar').addEventListener('change', function(e) {
+    const fileName = e.target.files[0] ? e.target.files[0].name : "Pilih gambar...";
+    const label = e.target.nextElementSibling;
+    if (label) {
+        label.innerText = fileName;
+    }
 });
 </script>
 
