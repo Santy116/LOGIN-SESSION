@@ -12,3 +12,7 @@ INSERT INTO hewan_laut (nama, jenis, habitat, deskripsi) VALUES
 ('Hiu Paus', 'Ikan', 'Laut Tropis', 'Hiu terbesar di dunia yang bersifat filter feeder'),
 ('Penyu Hijau', 'Reptil', 'Laut Tropis', 'Penyu laut yang sering ditemukan di perairan dangkal'),
 ('Gurita Pasifik', 'Moluska', 'Laut Dalam', 'Gurita besar yang dikenal sangat cerdas');
+
+INSERT INTO users (username, email, password, level) VALUES
+('admin', 'admin@example.com', 'admin123', 0),
+('user', 'user@example.com', 'user123', 1);
